@@ -1,0 +1,99 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.8/schema.json",
+  "root": true,
+  "plugins": [],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**/*.{js,jsx,ts,tsx}",
+      "**/package.json",
+      "**/biome.json",
+      "!!**/node_modules",
+      "!!**/dist",
+      "!!**/build",
+      "!!**/coverage",
+      "!!**/.git"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true
+  },
+  "linter": {
+    "includes": [
+      "cli/dust-cli/**"
+    ],
+    "rules": {
+      "recommended": false,
+      "correctness": {
+        "noUnusedImports": { "fix": "safe", "level": "error" },
+        "noUnusedVariables": "error"
+      },
+      "style": {
+        "useBlockStatements": "error",
+        "useImportType": "error"
+      },
+      "suspicious": {
+        "noImportCycles": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["cli/dust-cli/**"],
+      "javascript": {
+        "jsxRuntime": "reactClassic"
+      }
+    }
+  ],
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "double",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": false,
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": false
+    }
+  },
+  "assist": {
+    "includes": [
+      "cli/dust-cli/**"
+    ],
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}
